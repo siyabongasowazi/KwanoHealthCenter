@@ -1,0 +1,87 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="NurseIndex.master.cs" Inherits="KwanoHealthCenter.NurseIndex" %>
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head runat="server">
+    <title><%: Page.Title %>NURSE</title>
+
+    <asp:PlaceHolder runat="server">
+        <%: Scripts.Render("~/bundles/modernizr") %>
+    </asp:PlaceHolder>
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="vendor/StyleSheet1.css" rel="stylesheet" />
+    <link href="Font-awesome/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.js" integrity="sha512-XVz1P4Cymt04puwm5OITPm5gylyyj5vkahvf64T8xlt/ybeTpz4oHqJVIeDtDoF5kSrXMOUmdYewE4JS/4RWAA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.css" rel="stylesheet" />
+
+
+    <%--//FLAVOR--%>
+    <link href="Assets/daterangepicker/daterangepicker.css" rel="stylesheet" />
+    <script src="Assets/daterangepicker/moment.min.js"></script>
+    <script src="Assets/daterangepicker/daterangepicker.js"></script>
+<%-- https://rashicode.com--%>
+
+
+
+</head>
+<body>
+    <form runat="server">
+       
+        <div class="d-flex" id="wrapper">
+            <div class="bg-light border-light" id ="sidebar-wrapper">
+                <div class="sidebar-heading">NURSE</div>
+                <div class="list-group list-group-flush">
+                    <a href="DefaultNurse.aspx" class="list-group-item list-group-item-action bg-light">Dashboard</a>
+                    <a href="#" class="list-group-item list-group-item-action bg-light">My Profile</a>
+                    <a href="NurseFavouriteSuburbs.aspx" class="list-group-item list-group-item-action bg-light">My Favourite Suburbs</a>
+                    <a href="NurseTestRequests.aspx" class="list-group-item list-group-item-action bg-light">Test Requests</a>
+                    <a href="NurseSchedule.aspx" class="list-group-item list-group-item-action bg-light">Today's Schedule</a>
+                    <a href="TommorrowSchedule.aspx" class="list-group-item list-group-item-action bg-light">Tomorrow's Schedule</a>
+                    <a href="LoginPage.aspx" class="list-group-item list-group-item-action bg-light">Logout</a>
+
+                </div>
+
+            </div>
+
+
+            <div id="page-content-wrapper">
+                <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+                    <button type="button" id="menu-toggle" class="btn btn-primary">
+                        <i class="fa fa-bars"></i>
+                        <span class="sr-only">Toggle Menu</span>
+                    </button>
+                </nav>
+
+                <div class="container-fluid">
+                    <asp:ContentPlaceHolder ID="MainContent" runat="server">
+            </asp:ContentPlaceHolder>
+                </div>
+
+            </div>
+
+        </div>
+        <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="vendor/jquery/jquery.min.js"></script>
+
+        <script>
+            $("#menu-toggle").click(function (e) {
+                e.preventDefault();
+                $("#wrapper").toggleClass("toggled");
+
+            });
+        </script>
+
+
+        <div class="container body-content">
+           
+            <hr />
+            <footer>
+                <p>&copy; kwanohealthcentre.com <%: DateTime.Now.Year %> - Covid-19 Testing System</p>
+            </footer>
+        </div>
+
+    </form>
+</body>
+</html>
